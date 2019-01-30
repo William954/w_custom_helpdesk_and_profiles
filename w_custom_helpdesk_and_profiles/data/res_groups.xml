@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <odoo>
+        <data>
+            <record id="w_groups_normal_user_helpdesk" model="res.groups">
+                <field name="name">Normal user</field>
+            </record>
+        </data>
+    </odoo>

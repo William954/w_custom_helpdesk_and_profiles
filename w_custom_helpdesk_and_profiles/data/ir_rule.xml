@@ -9,7 +9,7 @@
                 <field name="perm_write" eval="True"/>
                 <field name="perm_unlink" eval="True"/>
                 <field name="groups" eval="[(4, ref('helpdesk.group_helpdesk_user'))]"/>
-                <field name="domain_force">[('user_id','=',user.id)]</field>
+                <field name="domain_force">['|',('user_id','=',user.id),('user_id', '=', False)]</field>
             </record>
             <record id="w_helpdesk_tickets_by_team" model="ir.rule">
                 <field name="name">Tickets by team</field>

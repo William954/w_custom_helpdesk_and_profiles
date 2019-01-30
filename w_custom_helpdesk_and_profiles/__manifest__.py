@@ -30,7 +30,8 @@
         'helpdesk'
     ],
     'data': [
-        'data/ir_rule.xml'
+        'data/ir_rule.xml',
+        'data/res_groups.xml'
     ],
     'demo': [],
     'qweb': [],

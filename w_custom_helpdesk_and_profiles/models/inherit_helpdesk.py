@@ -27,9 +27,10 @@ class HelpDeskTicket(models.Model):
     def _onchange_team_id(self):
         res = super(HelpDeskTicket, self)._onchange_team_id()
         user_ids = []
-        value = {}
         if self.env.user.has_group('helpdesk.group_helpdesk_manager'):
-            user_ids = [user.id for user in self.team_id.member_ids]
+            for user in self.team_id.member_ids:
+                if not user.has_group('w_custom_helpdesk_and_profiles.w_groups_normal_user_helpdesk'):
+                    user_ids.append(user.id)
             value = {'user_id': [('id', 'in', user_ids)]}
         elif self.env.user.has_group('helpdesk.group_helpdesk_user'):
             value = {'user_id': [('id', '=', self.env.user.id)]}
