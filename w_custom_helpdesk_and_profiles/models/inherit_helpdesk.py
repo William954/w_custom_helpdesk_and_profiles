@@ -23,6 +23,9 @@ class HelpDeskTicket(models.Model):
     _inherit = 'helpdesk.ticket'
 
 
+
+    partner_id = fields.Many2one('res.partner', string='Customer',default=lambda self: self.env.user.partner_id,store=True)
+
     @api.onchange('team_id')
     def _onchange_team_id(self):
         res = super(HelpDeskTicket, self)._onchange_team_id()
